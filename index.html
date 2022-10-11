@@ -1,16 +1,113 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="”viewport”" content="”width" = "device-width,"initial-scale="1.0″"/>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg"/>
+    <link rel="icon" type="image/png" href="img/favicon.png"/>
+    <!-- FontAwNan -->
+    <script
+      src="https://kit.fontawesome.com/2aba56147e.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- FontAwRox -->
+    <script
+      src="https://kit.fontawesome.com/3f1a48658c.js"
+      crossorigin="anonymous"
+    ></script>
 
-<head>
-  <meta charset="utf-8">
-  <title>Arreglos</title>
-  
-</head>
+    <title>Rick & Morty</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-  
-  <script src="main.js"></script>
+  <body>
+    <header>
+      <img id="logo" src="img/rick.png" />
+      <h1> Rick & Morty </h1>
+    </header>
 
-</body>
+    
+    <section id="textoMorty">
+      <h3>
+        Rick Sánchez es la definición exacta de "científico loco". Es alcohólico, es un genio, es irresponsable y está loco. 
+        Rick acaba de mudarse a casa de su hija Beth y allí recuerda que tiene un nieto llamado Morty. Sin preguntar a nadie, 
+        decide que va a obligarle a que le acompañe a todo tipo de aventuras para que el chico se vuelva inteligente como él y
+        no se convierta en un idiota como Jerry, padre de Morty y yerno de Rick.
+        Así Rick y Morty comienzan a vivir aventuras intergalácticas a pesar de que la familia no quiere que lo sigan haciendo. 
+        Poco a poco tienen que intentar encontrar un equilibrio entre su vida familiar y sus viajes a través del espacio y por 
+        distintas realidades paralelas, algo que no es fácil para el pequeño Morty que es incapaz de tener una vida normal al 
+        margen de su abuelo.
+      </h3>
+      <br><br><h2> Bibliography </h2>
 
+
+
+
+
+    </section>
+
+    <!-- Buscador -->
+
+    <section id="seccionBuscador" class="seccionBuscador">
+      <input type="search" id="inputBuscador" class="inputBuscador" placeholder="Search for your favorite character" />
+
+
+    </section>
+    <!-- Contiene filtros -->
+
+    <section id="seccionFiltrado">
+      <!-- Filtrado por Specie -->
+      <select name="filtrarSpecie" id="filtrarSpecie" class="selectores">
+        <option disabled selected>Choose a specie:</option>
+        <option value="Human">Human</option>
+        <option value="Alien">Alien</option>
+        <option value="Humanoid">Humanoid</option>
+        <option value="unknown">unknown</option>
+        <option value="Poopybutthole">Poopybutthole</option>
+        <option value="Mytholog">Mytholog</option>
+        <option value="Vampire">Vampire</option>
+        <option value="Robot">Robot</option>
+        <option value="Cronenberg">Cronenberg</option>
+        <option value="Disease">Disease</option>
+        <option value="Animal">Animal</option>
+        <option value="All">All</option>
+      </select>
+
+      <!-- Filtrado por Status -->
+      <select name="filtrarStatus" id="filtrarStatus" class="selectores">
+        <option disabled selected>Choose a Status:</option>
+        <option value="Alive">Alive</option>
+        <option value="unknown">unknown</option>
+        <option value="Dead">Dead</option>
+      </select>
+
+      
+      <!-- Filtro ordenar A-Z -->
+      <select name="filtroAZ" id="filtroAZ" class="filtroZA">
+        <option disabled selected>Sort:</option>
+        <option value="A-Z">Films A-Z</option>
+        <option value="Z-A">Films Z-A</option>
+      </select>
+
+
+    </section>
+    <!-- Área para mostrar personajes -->
+    <section id="allFilms"></section>
+
+
+   
+
+    
+    <!-- Footer -->
+
+    <footer class="footer">
+      Nanci Mondragón
+        <a class="gitHubLogo" href="https://github.com/NanciMondragon"
+          ><i class="fa-brands fa-github"></i>
+        </a>
+      </h4>
+    </footer>
+
+    <script src="main.js" type="module"></script>
+  </body>
 </html>

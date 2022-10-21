@@ -126,6 +126,19 @@ section {
   overflow: hidden;
 }
 
+#allPersonajes {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(91, 143, 176, 0.2);
+  border-radius: 15px;
+  }
+.peli {
+  flex: 1 0 40%;  text-align: center;
+  margin: 30px;
+  padding: 10px;
+  color: rgb(18, 85, 126);
+}
+
 .peli > img{
   border-radius: 15px;
   filter: drop-shadow(14px 14px 4px rgba(27, 129, 193, 0.5));

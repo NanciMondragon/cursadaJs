@@ -2,11 +2,12 @@
 import data from "./data/data.js"
 import { mostrarPersonajes} from "../src/logica.js"
 import { buscarSpecie } from "../src/logica.js";
-//import { buscarStatus } from "../src/logica.js";
+import { buscarStatus } from "../src/logica.js";
 
 const personajes = data.personajes;
 let personaje = "";
 let species = "";
+let status = "";
  
 //Mostrar en pantalla personajes
 const allPersonajes = document.getElementById("allPersonajes");
@@ -23,7 +24,7 @@ filtrarSpecie.addEventListener("change", () => {
 
     for (let i = 0; i < buscarSpecie(personajes, species).length; i++ ){
         //console.log(buscarSpecie(personaje, specie)[i])
-        
+
         let mostrarSpecies = `<section class = "peli"> 
             <h2> ${buscarSpecie(personajes,species)[i].name}" </h2>
             <img src="${buscarSpecie(personajes,species)[i].image}" class="poster">
@@ -35,6 +36,31 @@ filtrarSpecie.addEventListener("change", () => {
 
     }
 });
+
+//Filtrar Status
+const filtrarStatus = document.querySelector("#filtrarStatus");
+filtrarStatus.addEventListener("change", () => {
+    status = document.querySelector("#filtrarStatus").value;
+    console.log (buscarStatus (personajes, status))
+
+    const allPersonajes = document.getElementById("allPersonajes");
+    allPersonajes.innerHTML = " ";
+
+    for (let i = 0; i < buscarStatus(personajes, status).length; i++ ){
+        //console.log(buscarStatus(personaje, status)[i])
+
+        let mostrarStattus = `<section class = "peli"> 
+            <h2> ${buscarStatus(personajes,status)[i].name}" </h2>
+            <img src="${buscarStatus(personajes,status)[i].image}" class="poster">
+            <h2>Specie: ${buscarStatus(personajes,status)[i].species}</h2>
+            <h3>Gender: ${buscarStatus(personajes,status)[i].gender}</h3>
+            <h3>Status: ${buscarStatus(personajes,status)[i].status}</h3>
+            </section>`;
+            allPersonajes.innerHTML +=mostrarStattus;
+
+    }
+});
+
 
 
 

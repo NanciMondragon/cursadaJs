@@ -19,6 +19,12 @@ export let buscarSpecie = (personajes,species) =>{
     return arraySpecie;
 };
 
+export let buscarStatus = (personajes, status) =>{
+    const arrayStatus = personajes.filter((personaje) => personaje.status == status);
+    //console.log(arrayStatus);
+    return arrayStatus;
+};
+
 //Filtrar Status
 /*
 export let buscarStatus = personajes.filter(personaje => personaje.status == "Dead");

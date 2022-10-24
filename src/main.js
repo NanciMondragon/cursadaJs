@@ -3,11 +3,14 @@ import data from "./data/data.js"
 import { mostrarPersonajes} from "../src/logica.js"
 import { buscarSpecie } from "../src/logica.js";
 import { buscarStatus } from "../src/logica.js";
+import { ordenarAlfabeticamente } from "../src/logica.js";
+import { buscador } from "../src/logica.js";
 
 const personajes = data.personajes;
 let personaje = "";
 let species = "";
 let status = "";
+let todosPersonajes = personajes;
  
 //Mostrar en pantalla personajes
 const allPersonajes = document.getElementById("allPersonajes");
@@ -62,36 +65,40 @@ filtrarStatus.addEventListener("change", () => {
 });
 
 
+//Order AZ -- ZA
+const filtroAZ = document.querySelector("#filtroAZ");
+filtroAZ.addEventListener("change", () => {
+    console.log("click");
+    //az = document.querySelector("#filtroAZ").value;
+    //console.log (buscarStatus (personajes, status))
 
+    //const allPersonajes = document.getElementById("allPersonajes");
+    allPersonajes.innerHTML = " ";
 
+    for (let i = 0; i < ordenarAlfabeticamente(personajes, filtroAZ.value).length; i++ ){
+        //console.log(buscarStatus(personaje, status)[i])
 
+        let ordenar = `<section class = "peli"> 
+            <h2> ${ordenarAlfabeticamente(personajes,filtroAZ.value)[i].name}" </h2>
+            <img src="${ordenarAlfabeticamente(personajes, filtroAZ.value)[i].image}" class="poster">
+            <h2>Specie: ${ordenarAlfabeticamente(personajes,filtroAZ.value)[i].species}</h2>
+            <h3>Gender: ${ordenarAlfabeticamente(personajes, filtroAZ.value)[i].gender}</h3>
+            <h3>Status: ${ordenarAlfabeticamente(personajes, filtroAZ.value)[i].status}</h3>
+            </section>`;
+            allPersonajes.innerHTML += ordenar;
 
-/*
-let buscarStatus = personajes.filter(personaje => personaje.status == "Dead");
-console.log(buscarStatus);
-
-personajes.sort((a,b) =>{
-    if(a.name > b.name){
-        return 1;
     }
-    if(a.name < b.name){
-        return -1;
-    }
-    return 0;
-})
-
-console.log(personajes);
-
-let buscar = personajes.find(elemento => elemento.name == "Summer Smith");
-console.log(buscar);
-
-let personajeNuevo = personajes.map(personaje => personaje.name = personaje.name);
-
-console.log(personajeNuevo);
-
-personajes.forEach((personaje) => {
-    console.log(`Este personaje es ${personaje.name}, es de Tipo ${personaje.type}, su genero ${personaje.gender}` );
-    
 });
 
-*/
+//Buscador
+
+const inputBuscador = document.getElementById("inputBuscador");
+inputBuscador.addEventListener("keyup", () => {
+  todosPersonajes = buscador(personajes, "name", inputBuscador.value);
+  allPersonajes.innerHTML = todosPersonajes.map(mostrarPersonajes).join(" ")|| alert('To find your personaje, try with another word');
+});
+
+
+
+
+

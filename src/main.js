@@ -1,38 +1,29 @@
 
 import data from "./data/data.js"
+import { mostrarPersonajes} from "../src/logica.js"
+import { buscarSpecie } from "../src/logica.js";
+//import { buscarStatus } from "../src/logica.js";
 
 const personajes = data.personajes;
-
+let personaje = "";
+let species = "";
+ 
 //Mostrar en pantalla personajes
-let mostrarPersonajes = (personajes) => {
-    return `<section class = "peli"> 
-    <center><h5><div id="${personajes.name}" class="click">More info</div></h5></center>
-    <img src="${personajes.image}" class="poster">
-    <h2>Specie: ${personajes.species}</h2>
-    <h3>Gender: ${personajes.gender}</h3>
-    <h3>Status: ${personajes.status}</h3>
-    </section>`;
-};
-
 const allPersonajes = document.getElementById("allPersonajes");
 allPersonajes.innerHTML = personajes.map(mostrarPersonajes).join(" ");
 
 //Filtrar por especie
-let buscarSpecie = (personajes,species) =>{
-    const arraySpecie = personajes.filter((personaje) => personaje.species == species);
-    console.log(arraySpecie);
-    return arraySpecie;
-};
-
 const filtrarSpecie = document.querySelector("#filtrarSpecie");
 filtrarSpecie.addEventListener("change", () => {
     species = document.querySelector("#filtrarSpecie").value;
+    console.log (buscarSpecie (personajes, species))
 
     const allPersonajes = document.getElementById("allPersonajes");
     allPersonajes.innerHTML = " ";
 
-    for (let i = 0; i < buscarSpecie(personaje, specie).length; i++ ){
-        console.log(buscarSpecie(personaje, specie)[i])
+    for (let i = 0; i < buscarSpecie(personajes, species).length; i++ ){
+        //console.log(buscarSpecie(personaje, specie)[i])
+        
         let mostrarSpecies = `<section class = "peli"> 
             <h2> ${buscarSpecie(personajes,species)[i].name}" </h2>
             <img src="${buscarSpecie(personajes,species)[i].image}" class="poster">
@@ -47,6 +38,9 @@ filtrarSpecie.addEventListener("change", () => {
 
 
 
+
+
+/*
 let buscarStatus = personajes.filter(personaje => personaje.status == "Dead");
 console.log(buscarStatus);
 
@@ -74,3 +68,4 @@ personajes.forEach((personaje) => {
     
 });
 
+*/
